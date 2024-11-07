@@ -193,8 +193,17 @@ function removeLastOccurrences(str, value) {
  *   sumOfCodes('') => 0
  *   sumOfCodes() => 0
  */
-function sumOfCodes(/* str */) {
-  throw new Error('Not implemented');
+function sumOfCodes(str) {
+  if (str !== null && str !== undefined && str.length) {
+    let res = 0;
+    for (let i = 0; i < str.length; i += 1) {
+      res += str[i].charCodeAt();
+    }
+
+    return res;
+  }
+
+  return 0;
 }
 
 /**
@@ -240,8 +249,10 @@ function endsWith(str, substr) {
  *   formatTime(0, 45) => "00:45"
  *   formatTime(0, 0) => "00:00"
  */
-function formatTime(/* minutes, seconds */) {
-  throw new Error('Not implemented');
+function formatTime(minutes, seconds) {
+  const padMinutes = `${String(minutes).padStart(2, '0')}:`;
+  const padSeconds = `${String(seconds).padStart(2, '0')}`;
+  return padMinutes + padSeconds;
 }
 
 /**
@@ -269,8 +280,8 @@ function reverseString(str) {
  *   orderAlphabetically('textbook') => 'bekoottx'
  *   orderAlphabetically('abc123xyz') => '123abcxyz'
  */
-function orderAlphabetically(/* str */) {
-  throw new Error('Not implemented');
+function orderAlphabetically(str) {
+  return str.split('').sort().join('');
 }
 
 /**
